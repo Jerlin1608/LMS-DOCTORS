@@ -1,0 +1,39 @@
+<!-- ══════════════════════════════════
+     APP SHELL — ADMIN & APPLICANT DASHBOARD
+══════════════════════════════════ -->
+<div id="view-app" class="view">
+  <!-- TOPBAR -->
+  <header class="topbar">
+    <div class="tb-brand" onclick="showPage('overview')">
+      <div class="tb-logo"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M12 2v20M2 12h20"/></svg></div>
+      <div><div class="tb-name">MedLicense Pro</div><div class="tb-sub" id="tbSub">PORTAL</div></div>
+    </div>
+    <nav class="tb-nav" id="tbNav"></nav>
+    <div class="tb-user">
+      <!-- Notification Bell (applicant only) -->
+      <div class="notif-wrap" id="notifWrap" style="display:none;position:relative">
+        <button class="notif-btn" id="notifBtn" onclick="toggleNotifPanel()" title="Notifications">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+          <span class="notif-badge" id="notifBadge" style="display:none">0</span>
+        </button>
+        <div class="notif-panel" id="notifPanel">
+          <div class="notif-head">
+            <span>Notifications</span>
+            <button onclick="clearAllNotifs()" style="background:none;border:none;font-size:11px;color:var(--teal);cursor:pointer;font-weight:600">Clear all</button>
+          </div>
+          <div class="notif-list" id="notifList"></div>
+        </div>
+      </div>
+      <div class="tb-avatar" id="tbAvatar"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+      <div><div class="tb-uname" id="tbUname">User</div><div class="tb-urole" id="tbUrole">ROLE</div></div>
+      <button class="btn-logout" onclick="logout()">Sign Out</button>
+    </div>
+  </header>
+
+  <div class="app-body">
+    <!-- SIDEBAR -->
+    <nav class="sidebar" id="appSidebar"></nav>
+    <!-- PAGE CONTENT -->
+    <div class="page-content" id="pageContent"></div>
+  </div>
+</div>

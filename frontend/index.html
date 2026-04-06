@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>MedLicense Pro — Medical License Authority System</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+
+  <div id="app-root"></div>
+
+  <script>
+    const pages = [
+      'components/modals.html',
+      'pages/login.html',
+      'pages/dashboard.html',
+      'pages/verification.html'
+    ];
+    Promise.all(pages.map(p => fetch(p).then(r => r.text())))
+      .then(parts => {
+        document.getElementById('app-root').innerHTML = parts.join('\n');
+        const script = document.createElement('script');
+        script.src = 'js/app.js';
+        document.body.appendChild(script);
+      })
+      .catch(err => console.error('Failed to load page:', err));
+  </script>
+
+</body>
+</html>
